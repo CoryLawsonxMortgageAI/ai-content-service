@@ -1,0 +1,17 @@
+# Railway Deployment Configuration for AI Content Service
+# https://railway.app
+
+[build]
+builder = "DOCKERFILE"
+dockerfilePath = "Dockerfile"
+
+[deploy]
+startCommand = "python railway_entrypoint.py"
+healthcheckPath = "/health"
+healthcheckTimeout = 60
+restartPolicyType = "ON_FAILURE"
+restartPolicyMaxRetries = 3
+
+[deploy.resources]
+cpu = 1
+memory = "1Gi"
